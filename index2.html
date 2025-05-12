@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resumen por Empleado - IKEA</title>
+  <link rel="stylesheet" href="css/estilo2.css">
+</head>
+<body>
+  <header>
+    <img class="logo" src="img/Ikea_logo.png" alt="logo ikea">
+    <h1 class="tituloIkea">Informe Empleados - IKEA</h1>
+  </header>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="index2.html">Horas</a>
+    <a href="admin.html">Administración</a>
+  </nav>
+
+  <div class="empleados-container" id="empleados">
+    <!-- Tarjetas generadas dinámicamente -->
+  </div>
+
+  <div style="text-align: center; margin: 30px;">
+    <button onclick="descargarRegistroGlobal()">Descargar todos los registros</button>
+  </div>
+
+  <script src="js/datos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+  <script src="js/funciones.js"></script>
+  <script src="js/index2.js"></script>
+  
+</body>
+</html>

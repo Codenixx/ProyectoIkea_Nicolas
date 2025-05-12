@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Administrar Empleados - IKEA</title>
+  <link rel="stylesheet" href="css/estilo4.css">
+</head>
+<body>
+    <header>
+      <img class="logo" src="img/Ikea_logo.png" alt="logo ikea">
+      <h1 class="tituloIkea">Admin - IKEA</h1>
+      </header>
+    
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="index2.html">Horas</a>
+        <a href="admin.html">Administración</a>
+      </nav>
+    
+  <main>
+    <section class="form-section">
+      <h2>Añadir Empleado</h2>
+      <input type="text" id="nuevoEmpleado" placeholder="Nombre del empleado">
+      <button onclick="crearEmpleado()">Añadir</button>
+    </section>
+
+    <section class="form-section">
+      <h2>Lista de Empleados</h2>
+      <ul id="listaEmpleados"></ul>
+    </section>
+  </main>
+
+  <script src="js/datos.js"></script>
+  <script src="js/funciones.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>

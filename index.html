@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Horario Semanal - IKEA</title>
+  <link rel="stylesheet" href="css/estilo1.css">
+  
+</head>
+<body>
+  <header>
+    <img class="logo" src="img/Ikea_logo.png" alt="logo ikea">
+    <h1 class="tituloIkea">Horario Semanal - IKEA</h1>
+  </header>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="index2.html">Horas</a>
+    <a href="admin.html">Administración</a>
+  </nav>
+
+  <div class="controls">
+    <select id="empleadoSelect"></select>
+    <button class="botonFichar" onclick="ficharEntrada()">FICHAR</button>
+    <button class="botonSalir" onclick="ficharSalida()">SALIR</button>
+  </div>
+
+  <div class="barra-tabla" id="barraTrabajo">
+    <div class="columna-horas">
+      <div class="etiqueta-dia">Horas</div>
+      <div class="contenedor-horas"></div>
+    </div>
+    <div class="columna-dia" data-dia="0">
+      <div class="etiqueta-dia">L</div>
+      <div class="contenedor-barras" id="columna-0"></div>
+    </div>
+    <div class="columna-dia" data-dia="1">
+      <div class="etiqueta-dia">M</div>
+      <div class="contenedor-barras" id="columna-1"></div>
+    </div>
+    <div class="columna-dia" data-dia="2">
+      <div class="etiqueta-dia">X</div>
+      <div class="contenedor-barras" id="columna-2"></div>
+    </div>
+    <div class="columna-dia" data-dia="3">
+      <div class="etiqueta-dia">J</div>
+      <div class="contenedor-barras" id="columna-3"></div>
+    </div>
+    <div class="columna-dia" data-dia="4">
+      <div class="etiqueta-dia">V</div>
+      <div class="contenedor-barras" id="columna-4"></div>
+    </div>
+    <div class="columna-dia" data-dia="5">
+      <div class="etiqueta-dia">S</div>
+      <div class="contenedor-barras" id="columna-5"></div>
+    </div>
+    <div class="columna-dia" data-dia="6">
+      <div class="etiqueta-dia">D</div>
+      <div class="contenedor-barras" id="columna-6"></div>
+    </div>
+  </div>
+
+  <script src="js/datos.js"></script>
+  <script src="js/funciones.js"></script>
+  <script src="js/index.js"></script>
+</body>
+</html>

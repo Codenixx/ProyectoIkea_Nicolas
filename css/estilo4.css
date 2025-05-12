@@ -1,0 +1,82 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  header {
+    background: #fbda0c;
+    color: #0057ad;
+    padding: 10px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+  }
+  .logo{
+    height: 3rem;
+  }
+  .tituloIkea{
+    position:absolute;
+    width: 100%;
+  }
+  nav {
+    display: flex;
+    justify-content: center;
+    background: #0057ad;
+    padding: 10px;
+  }
+  nav a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #fbda0c;
+    font-weight: bold;
+  }
+  
+  main {
+    padding: 20px;
+  }
+  
+  .form-section {
+    margin-bottom: 30px;
+  }
+  
+  .form-section h2 {
+    margin-bottom: 10px;
+  }
+  
+  input[type=\"text\"] {
+    padding: 8px;
+    width: 250px;
+    margin-right: 10px;
+  }
+  
+  button {
+    padding: 8px 12px;
+    background-color: #0058a3;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  button:hover {
+    background-color: #003f7d;
+  }
+  
+  ul {
+    list-style: none;
+    padding-left: 0;
+  }
+  
+  li {
+    margin-bottom: 10px;
+    padding: 5px;
+    background: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+  }
+  
+  li button {
+    margin-left: 10px;
+  }
+  

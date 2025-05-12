@@ -1,0 +1,142 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  header {
+    background: #fbda0c;
+    color: #0057ad;
+    padding: 10px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+  }
+  .logo{
+    height: 3rem;
+  }
+  .tituloIkea{
+    position:absolute;
+    width: 100%;
+  }
+  nav {
+    display: flex;
+    justify-content: center;
+    background: #0057ad;
+    padding: 10px;
+  }
+  nav a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #fbda0c;
+    font-weight: bold;
+  }
+  .controls {
+    text-align: center;
+    margin: 20px;
+  }
+  button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    cursor: pointer;
+    color: white;
+    border: 0px;
+    border-radius: 0.5rem;
+    font-weight: bolder;
+  }
+  button:hover{
+    transform:scale(0.9);
+    transition: 0.1s  ease;
+  }
+  .botonFichar{
+    background-color: green;
+
+  }
+  .botonSalir{
+    background-color: red;
+  }
+  select {
+    padding: 10px;
+    margin-right: 10px;
+  }
+  
+
+  
+  .columna-horas, .columna-dia {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .etiqueta-dia {
+    margin-bottom: 1rem;
+    background-color: #0057ad;
+    color: white;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    font-weight: bold;
+  }
+  
+  .contenedor-horas {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .hora {
+    height: 60px;
+    font-size: 12px;
+    text-align: right;
+    padding-right: 5px;
+    border-bottom: 1px solid #ddd;
+  }
+
+  /* Bloque de trabajo */
+  .bloque-trabajo {
+    position: absolute;
+    left: 5%;
+    width: 90%;
+    background-color: #90ee90;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  }
+  
+
+  .barra-tabla {
+    display: grid;
+    grid-template-columns: 80px repeat(7, 1fr);
+    gap: 10px;
+    padding: 0px 20px 20px 20px;
+    height: auto;
+  }
+  
+  .contenedor-horas {
+    height: 1440px; /* 60px * 24 horas */
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .hora {
+    height: 60px;
+    font-size: 12px;
+    text-align: right;
+    padding-right: 5px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .contenedor-barras {
+    position: relative;
+    height: 1440px; /* Igual que horas */
+    background-color: #f9f9f9;
+    border-left: 1px solid #0057ad;
+  }
+  
+  .bloque-trabajo {
+    position: absolute;
+    left: 5%;
+    width: 90%;
+    background-color: #90ee90;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    transition: height 0.3s ease-in-out, top 0.3s ease-in-out;
+  }
+  
