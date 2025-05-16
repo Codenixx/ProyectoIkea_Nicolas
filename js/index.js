@@ -50,7 +50,21 @@ function ficharSalida() {
 
   const horaInicio = new Date();
   horaInicio.setHours(entrada.hour, entrada.minute);
-  const duracionMinutos = Math.floor((now - horaInicio) / 60000);
+  let duracionMinutos = Math.floor((now - horaInicio) / 60000);
+
+  // Restar descansos de ese día
+  const descansos = JSON.parse(localStorage.getItem("descansos") || "[]");
+  const descansosEmpleado = descansos.filter(d =>
+    d.empleado === empleado && d.day === entrada.day
+  );
+
+  descansosEmpleado.forEach(d => {
+    const inicio = d.inicio.hour * 60 + d.inicio.minute;
+    const fin = d.fin.hour * 60 + d.fin.minute;
+    duracionMinutos -= (fin - inicio);
+  });
+
+  duracionMinutos = Math.max(duracionMinutos, 0);
 
   registrarHoras(empleado, duracionMinutos / 60, "semana");
   registrarHoras(empleado, duracionMinutos / 60, "mes");
@@ -126,9 +140,38 @@ function renderizarBloquesEmpleado(empleado) {
 
     bloque.style.top = `${top}px`;
     bloque.style.height = `${height}px`;
+
+    columna.appendChild(bloque);
+  });
+
+  // Mostrar descansos
+  renderizarDescansosEmpleado(empleado);
+}
+
+function renderizarDescansosEmpleado(empleado) {
+  const descansos = JSON.parse(localStorage.getItem("descansos") || "[]");
+  const filtrados = descansos.filter(d => d.empleado === empleado);
+
+  filtrados.forEach(d => {
+    const columna = document.getElementById(`columna-${d.day}`);
+    if (!columna) return;
+
+    const bloque = document.createElement("div");
+    bloque.className = "bloque-descanso";
+    bloque.style.position = "absolute"; // ⬅ importante
+    bloque.style.zIndex = "10";         // ⬅ para que esté por encima
+
+    const top = (d.inicio.hour * 60 + d.inicio.minute);
+    const fin = (d.fin.hour * 60 + d.fin.minute);
+    const height = Math.max(fin - top, 1);
+
+    bloque.style.top = `${top}px`;
+    bloque.style.height = `${height}px`;
+
     columna.appendChild(bloque);
   });
 }
+
 
 function generarHorasVerticales() {
   document.addEventListener("DOMContentLoaded", () => {
@@ -141,4 +184,54 @@ function generarHorasVerticales() {
       contenedor.appendChild(div);
     }
   });
+}
+
+function iniciarDescanso() {
+  const empleado = document.getElementById("empleadoSelect").value;
+
+  if (!hayEntradaActiva(empleado)) {
+    logAlerta("No puedes iniciar descanso sin haber fichado entrada.");
+    return;
+  }
+
+  if (localStorage.getItem(`descanso_${empleado}`)) {
+    logAlerta("Ya hay un descanso en curso.");
+    return;
+  }
+
+  const now = new Date();
+  const day = (now.getDay() + 6) % 7;
+  const hour = now.getHours();
+  const minute = now.getMinutes();
+
+  const descanso = { empleado, day, hour, minute };
+  localStorage.setItem(`descanso_${empleado}`, JSON.stringify(descanso));
+  logAlerta(`Descanso iniciado para ${empleado} a las ${hour}:${minute.toString().padStart(2, '0')}`);
+}
+
+function finalizarDescanso(empleado) {
+  const inicio = JSON.parse(localStorage.getItem(`descanso_${empleado}`));
+  if (!inicio) {
+    logAlerta("No hay descanso en curso.");
+    return;
+  }
+
+  const now = new Date();
+  const finHour = now.getHours();
+  const finMinute = now.getMinutes();
+
+  const descanso = {
+    empleado,
+    day: inicio.day,
+    inicio: { hour: inicio.hour, minute: inicio.minute },
+    fin: { hour: finHour, minute: finMinute }
+  };
+
+  const registros = JSON.parse(localStorage.getItem("descansos") || "[]");
+  registros.push(descanso);
+  localStorage.setItem("descansos", JSON.stringify(registros));
+  localStorage.removeItem(`descanso_${empleado}`);
+
+  logAlerta(`Descanso finalizado para ${empleado} a las ${finHour}:${finMinute.toString().padStart(2, '0')}`);
+  renderizarBloquesEmpleado(empleado);
 }

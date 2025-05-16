@@ -2,11 +2,26 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-  }
+    
+  
+  /* HTML Template*/
+  background: radial-gradient(
+    circle at 30% 30%,
+    #1a1a2e 10%,
+    #16213e 30%,
+    #092241 50%,
+    #2a3a43 70%,
+    #00293f 90%
+  );
+  background-attachment: fixed;
+  height: 100vh;
+}
+.fondo-titulo{
+  background: linear-gradient(    #000000,    #ffffff00     );
+}
   header {
-    background: #fbda0c;
-    color: #0057ad;
-    padding: 10px;
+    color: #ffffff;
+    padding: 10px 30px;
     text-align: center;
     display: flex;
     align-items: center;
@@ -14,56 +29,120 @@ body {
   .logo{
     height: 3rem;
   }
+  .logo2{
+    height: 5rem;
+  }
   .tituloIkea{
     position:absolute;
     width: 100%;
   }
+  .x{
+    margin-left: 1rem;
+
+  }
   nav {
     display: flex;
     justify-content: center;
-    background: #0057ad;
     padding: 10px;
   }
   nav a {
     margin: 0 10px;
     text-decoration: none;
-    color: #fbda0c;
+    color: #ffffff;
     font-weight: bold;
   }
   .controls {
     text-align: center;
-    margin: 20px;
+    padding: 2rem;
+    margin: 10px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    flex-wrap: wrap;
   }
-  button {
-    padding: 10px 20px;
-    margin: 0 10px;
-    cursor: pointer;
-    color: white;
-    border: 0px;
+  .controls-flex{
+    width: 30%;
+    padding: 0%;
+  }
+  select{
+    width: 25rem;
     border-radius: 0.5rem;
-    font-weight: bolder;
+    padding: 0.5rem 0rem;
+    margin: 02em 0rem;
+    font-family: Arial Black,Arial Bold,Gadget,sans-serif; 
+    text-align: center;
   }
-  button:hover{
-    transform:scale(0.9);
-    transition: 0.1s  ease;
-  }
-  .botonFichar{
-    background-color: green;
+ 
+/* CSS */
+.estiloBoton {
+  margin: 1rem 1rem;
+  align-items: center;
+  appearance: none;
+  background-color: #FCFCFD;
+  border-radius: 4px;
+  border-width: 0;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,rgba(45, 35, 66, 0.3) 0 7px 13px -3px,#D6D6E7 0 -3px 0 inset;
+  box-sizing: border-box;
+  color: #36395A;
+  cursor: pointer;
+  display: inline-flex;
+	font-family: Arial Black,Arial Bold,Gadget,sans-serif; 
+  height: 48px;
+  justify-content: center;
+  line-height: 1;
+  list-style: none;
+  overflow: hidden;
+  padding-left: 16px;
+  padding-right: 16px;
+  position: relative;
+  text-align: left;
+  text-decoration: none;
+  transition: box-shadow .15s,transform .15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  will-change: box-shadow,transform;
+  font-size: 18px;
+}
 
-  }
-  .botonSalir{
-    background-color: red;
-  }
-  select {
-    padding: 10px;
-    margin-right: 10px;
-  }
-  
+.estiloBoton:focus {
+  box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+}
 
-  
+.estiloBoton:hover {
+  box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+  transform: translateY(-2px);
+}
+
+.estiloBoton:active {
+  box-shadow: #D6D6E7 0 3px 7px inset;
+  transform: translateY(2px);
+}
+
+.botonFichar{
+  width: 40%;
+
+}
+.botonSalir{
+  width: 40%;
+
+}
+.botonPDescanso{
+  width: 40%;
+
+}
+.botonFDescanso{
+  width: 40%;
+}
+.inicio-sesion{
+  color: white;
+}
   .columna-horas, .columna-dia {
     display: flex;
     flex-direction: column;
+    color: white;
   }
   
   .etiqueta-dia {
@@ -126,7 +205,7 @@ body {
   .contenedor-barras {
     position: relative;
     height: 1440px; /* Igual que horas */
-    background-color: #f9f9f9;
+    background-color: #e3e3e3;
     border-left: 1px solid #0057ad;
   }
   
@@ -138,5 +217,10 @@ body {
     border-radius: 4px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
     transition: height 0.3s ease-in-out, top 0.3s ease-in-out;
+  }
+  .bloque-descanso {
+    background-color: rgba(30, 144, 255, 0.7); /* Azul semitransparente */
+    width: 100%;
+    border-radius: 4px;
   }
   

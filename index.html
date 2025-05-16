@@ -8,21 +8,28 @@
   
 </head>
 <body>
+    <div class="fondo-titulo">
   <header>
     <img class="logo" src="img/Ikea_logo.png" alt="logo ikea">
+    <h1 class="x">x</h1>
+    <img class="logo2" src="img/logothermaflowfinal.png" alt="logo ikea">
     <h1 class="tituloIkea">Horario Semanal - IKEA</h1>
   </header>
 
   <nav>
-    <a href="index.html">Home</a>
+    <a href="index.html">Jornadas</a>
     <a href="index2.html">Horas</a>
     <a href="admin.html">Administración</a>
   </nav>
-
+</div>
   <div class="controls">
+    <div class="controls-flex">
     <select id="empleadoSelect"></select>
-    <button class="botonFichar" onclick="ficharEntrada()">FICHAR</button>
-    <button class="botonSalir" onclick="ficharSalida()">SALIR</button>
+    <button class="botonFichar estiloBoton" onclick="ficharEntrada()">FICHAR</button>
+    <button class="botonSalir estiloBoton" onclick="ficharSalida()">SALIR</button>
+    <button class="botonPDescanso estiloBoton" onclick="iniciarDescanso()">DESCANSO</button>
+    <button class="botonFDescanso estiloBoton" onclick="finalizarDescanso(document.getElementById('empleadoSelect').value)">CONTINUAR</button>
+</div>
   </div>
 
   <div class="barra-tabla" id="barraTrabajo">
